@@ -1,5 +1,7 @@
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface TencentCos : NSObject <RCTBridgeModule>
+
+@interface TencentCos : RCTEventEmitter <RCTBridgeModule>
 
 @end

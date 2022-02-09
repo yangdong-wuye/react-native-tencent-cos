@@ -122,7 +122,7 @@ export interface UploadPartResult {
   last: boolean;
 }
 
-export type CosXmlModuleType = {
+export type TencentCosType = {
   /**
    * 使用密钥初始化
    * @param configurations

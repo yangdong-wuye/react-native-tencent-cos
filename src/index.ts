@@ -4,7 +4,7 @@ import type { Token } from './token';
 import type {
   CancelUploadRequest,
   Configuration,
-  CosXmlModuleType,
+  TencentCosType,
   DownloadObjectRequest,
   DownloadResultEvent,
   FileInfo,
@@ -16,9 +16,9 @@ import type {
   UploadObjectRequest,
 } from './types';
 
-const { CosXmlModule } = NativeModules;
+const { TencentCos } = NativeModules;
 
-const cosModule = CosXmlModule as CosXmlModuleType;
+const cosModule = TencentCos as TencentCosType;
 
 class CosXmlService {
   static instance: CosXmlService;
@@ -41,7 +41,7 @@ class CosXmlService {
     this.progressListeners = new Map();
     this.downloadResultListeners = new Map();
 
-    this.emitter = new NativeEventEmitter(CosXmlModule);
+    this.emitter = new NativeEventEmitter(TencentCos);
 
     this.emitter.addListener('COSProgressUpdate', (event: ProgressEvent) => {
       const { requestId, processedBytes, targetBytes } = event;
@@ -67,41 +67,41 @@ class CosXmlService {
   }
 
   get MainBundlePath(): string {
-    return CosXmlModule.MainBundlePath;
+    return TencentCos.MainBundlePath;
   }
   get CachesDirectoryPath(): string {
-    return CosXmlModule.CachesDirectoryPath;
+    return TencentCos.CachesDirectoryPath;
   }
   get ExternalCachesDirectoryPath(): string {
-    return CosXmlModule.ExternalCachesDirectoryPath;
+    return TencentCos.ExternalCachesDirectoryPath;
   }
   get DocumentDirectoryPath(): string {
-    return CosXmlModule.DocumentDirectoryPath;
+    return TencentCos.DocumentDirectoryPath;
   }
   get DownloadDirectoryPath(): string {
-    return CosXmlModule.DownloadDirectoryPath;
+    return TencentCos.DownloadDirectoryPath;
   }
   get ExternalDirectoryPath(): string {
-    return CosXmlModule.ExternalDirectoryPath;
+    return TencentCos.ExternalDirectoryPath;
   }
   get ExternalStorageDirectoryPath(): string {
-    return CosXmlModule.ExternalStorageDirectoryPath;
+    return TencentCos.ExternalStorageDirectoryPath;
   }
   get TemporaryDirectoryPath(): string {
-    return CosXmlModule.TemporaryDirectoryPath;
+    return TencentCos.TemporaryDirectoryPath;
   }
   get LibraryDirectoryPath(): string {
-    return CosXmlModule.LibraryDirectoryPath;
+    return TencentCos.LibraryDirectoryPath;
   }
   get PicturesDirectoryPath(): string {
-    return CosXmlModule.PicturesDirectoryPath;
+    return TencentCos.PicturesDirectoryPath;
   }
   get FileProtectionKeys(): string {
-    return CosXmlModule.FileProtectionKeys;
+    return TencentCos.FileProtectionKeys;
   }
 
   getFileInfo(path: string): Promise<FileInfo> {
-    return CosXmlModule.getFileInfo(path);
+    return TencentCos.getFileInfo(path);
   }
 
   initWithPlainSecret(

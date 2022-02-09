@@ -53,7 +53,7 @@ import java.util.Map;
 
 public class TencentCosModule extends ReactContextBaseJavaModule {
 
-    public static final String NAME = "TencentCosModule";
+    public static final String NAME = "TencentCos";
     private final ReactApplicationContext reactContext;
 
     private CosXmlSimpleService cosXmlService;

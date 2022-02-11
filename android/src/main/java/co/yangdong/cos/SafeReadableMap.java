@@ -1,4 +1,4 @@
-package co.yangdong;
+package co.yangdong.cos;
 
 
 import com.facebook.react.bridge.Arguments;

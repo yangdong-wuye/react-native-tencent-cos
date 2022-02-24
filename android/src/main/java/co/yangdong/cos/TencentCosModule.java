@@ -371,6 +371,7 @@ public class TencentCosModule extends ReactContextBaseJavaModule {
      * @param options
      * @param promise
      */
+    @ReactMethod
     public void cancelUpload(final ReadableMap options, final Promise promise) {
         try {
             final String bucket = SafeReadableMap.safeGetString(options, "bucket");
